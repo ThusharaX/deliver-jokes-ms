@@ -19,7 +19,7 @@ import { JokeType } from './joke-types/entities/JokeType';
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
       entities: [Joke, JokeType],
-      synchronize: true, // ! only for development
+      synchronize: false, // ! set to false in production
     }),
     JokesModule,
     JokeTypesModule,
