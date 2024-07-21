@@ -1,8 +1,24 @@
 ###################
+# BUILD FOR LOCAL DEVELOPMENT
+###################
+
+FROM node:16-alpine As development
+
+WORKDIR /usr/src/app
+
+COPY --chown=node:node package*.json ./
+
+RUN npm install --force
+
+COPY --chown=node:node . .
+
+USER node
+
+###################
 # BUILD FOR PRODUCTION
 ###################
 
-FROM node:20-alpine As build
+FROM node:16-alpine As build
 
 WORKDIR /usr/src/app
 
@@ -24,7 +40,7 @@ USER node
 # PRODUCTION
 ###################
 
-FROM node:20-alpine As production
+FROM node:16-alpine As production
 
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
