@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('deliver');
   app.enableCors({
     origin: [process.env.LOCAL_DOMAIN, process.env.PROD_DOMAIN],
   });
