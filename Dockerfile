@@ -32,7 +32,7 @@ RUN npm run build
 
 ENV NODE_ENV production
 
-RUN npm install --force --only=production && npm cache clean --force
+RUN npm install --force --only=production --ignore-scripts && npm cache clean --force
 
 USER node
 
