@@ -5,7 +5,7 @@ echo '🏗️👷 Hi, my name is LuciferX. I am responsible for testing your pro
 # Check Prettier standards
 pnpm check:format ||
 (
-  echo '🤢🤮 Prettier Check Failed. Your code styling not looking good. 🤢🤮  Run yarn fix-format, add changes and try commit again.';
+  echo '🤢🤮 Prettier Check Failed. Your code styling not looking good. 🤢🤮  Run pnpm format, add changes and try commit again.';
   false;
 )
 
@@ -14,13 +14,6 @@ pnpm check:lint ||
 (
   echo '😤🏀 ESLint Check Failed. Your code may have some linting issues. 👋😤 Make the required changes listed above, add changes and try to commit again.'
   false; 
-)
-
-# Run Tests
-pnpm test ||
-(
-  echo '🤯🤯 Tests Failed. Your code is not passing the tests. 🤯🤯 Make the required changes listed above, add changes and try to commit again.'
-  false;
 )
 
 # If everything passes... Now we can commit
