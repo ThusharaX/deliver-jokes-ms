@@ -20,6 +20,9 @@ import { JokeType } from './joke-types/entities/JokeType';
       database: process.env.MYSQL_DATABASE,
       entities: [Joke, JokeType],
       synchronize: false, // ! set to false in production
+      ssl: {
+        rejectUnauthorized: false, // ! remove this line in production
+      },
     }),
     JokesModule,
     JokeTypesModule,
